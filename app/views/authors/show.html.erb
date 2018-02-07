@@ -1,28 +1,2 @@
 <h2><%= @author.name %></h2>
 <a href="mailto:<%= @author.email %>"><%= @author.email %></a>
-
-<%= form_tag("/author") do %>
-  <% if @author.errors.any? %>
-    <div id="error_explanation">
-      <h2>There were some errors:</h2>
-      <ul>
-        <% @author.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div class="field<%= ' field_with_errors' if @author.errors[:name].any? %>">
-    <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name", @author.name %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @author.errors[:email].any? %>">
-    <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone number", @author.phone_number %>
-  </div>
-
-  <%= submit_tag "Create" %>
-<% end %>
